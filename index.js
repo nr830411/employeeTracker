@@ -1,4 +1,5 @@
 const express = require('express')
+const consoleTable = require ('console.table')
 const inquirer = require('inquirer')
 const mysql = require ('mysql')
 
@@ -6,7 +7,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'ASShole1ne!',
+    password: '',
     database: 'employeeTracker_DB'
 })
 
