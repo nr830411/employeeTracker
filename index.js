@@ -2,9 +2,6 @@ const express = require('express')
 const inquirer = require('inquirer')
 const mysql = require ('mysql')
 
-const PORT = process.env.PORT || 3000
-const app = express()
-
 const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -36,7 +33,7 @@ function startApp() {
     }).then(function (answer) {
         switch (answer.action) {
             case "View all employees":
-                viewEmployees();
+                viewEmployee();
                 break;
             case "View all departments":
                 viewDepartments();
@@ -62,7 +59,7 @@ function startApp() {
     })
 }
 
-function viewEmployees() {
+function viewEmployee() {
     var query = "SELECT * FROM employee";
     connection.query(query, function(err, res) {
     if (err) throw err;
